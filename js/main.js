@@ -188,7 +188,7 @@ window.addEventListener('load', function () {
         render.renderQuestion(data[0]);
         data.forEach(function (question) { return test.add(question); });
     };
-    request.open('GET', '/BD.json');
+    request.open('GET', '/TestApp/BD.json');
     request.send();
 });
 //# sourceMappingURL=main.js.map

@@ -235,7 +235,7 @@ window.addEventListener('load', (): void => {
         render.renderQuestion(data[0]);
         data.forEach( (question: Question) => test.add(question) );
     }
-    request.open('GET', '/BD.json');
+    request.open('GET', '/TestApp/BD.json');
     request.send();
 
 
