@@ -47,9 +47,6 @@ class TestIterator implements MyIterator<Question> {
     public setValidId(id: number) {
         this.validAnswerId = id;
     }
-    public getQuestionsCount() {
-        return this.questions.length;
-    }
     public calcExpectedPercent() {
         return ((this.answers.length + 1) * 100) / this.questions.length;
     }
@@ -136,7 +133,7 @@ class Render {
             if (!iteration.done) {
                 this.renderQuestion(iteration.value);
             } else {
-                this.renderTotals(this.iterator.answers, this.iterator.getQuestionsCount());
+                this.renderTotals();
             }
 
         });
@@ -144,7 +141,7 @@ class Render {
 
     private stopHandler() {
         this.stopBtn.addEventListener('click', () => {
-            this.renderTotals(this.iterator.answers, this.iterator.getQuestionsCount())
+            this.renderTotals()
         })
     }
     private refreshHandler(btn) {
@@ -195,7 +192,7 @@ class Render {
             this.listEl.appendChild(this.createListBtn(answer, String(idx)));
         });
     }
-    renderTotals(answers: Array<any>, questionsCount: number) {        
+    renderTotals() {        
         let total: number = Number(this.iterator.calcTotlaPercent().toFixed(1));
         let title: string;
         let state: string;

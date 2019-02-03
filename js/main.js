@@ -22,9 +22,6 @@ var TestIterator = (function () {
     TestIterator.prototype.setValidId = function (id) {
         this.validAnswerId = id;
     };
-    TestIterator.prototype.getQuestionsCount = function () {
-        return this.questions.length;
-    };
     TestIterator.prototype.calcExpectedPercent = function () {
         return ((this.answers.length + 1) * 100) / this.questions.length;
     };
@@ -97,14 +94,14 @@ var Render = (function () {
                 _this.renderQuestion(iteration.value);
             }
             else {
-                _this.renderTotals(_this.iterator.answers, _this.iterator.getQuestionsCount());
+                _this.renderTotals();
             }
         });
     };
     Render.prototype.stopHandler = function () {
         var _this = this;
         this.stopBtn.addEventListener('click', function () {
-            _this.renderTotals(_this.iterator.answers, _this.iterator.getQuestionsCount());
+            _this.renderTotals();
         });
     };
     Render.prototype.refreshHandler = function (btn) {
@@ -153,7 +150,7 @@ var Render = (function () {
             _this.listEl.appendChild(_this.createListBtn(answer, String(idx)));
         });
     };
-    Render.prototype.renderTotals = function (answers, questionsCount) {
+    Render.prototype.renderTotals = function () {
         var total = Number(this.iterator.calcTotlaPercent().toFixed(1));
         var title;
         var state;
