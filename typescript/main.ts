@@ -72,9 +72,18 @@ class TestIterator implements MyIterator<Question> {
             }
         }
     }
-    public refresh() {
+        
+    public shuffleArray(array) : void {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    public refresh(): MyIteratorResult<Question> {
         this.current = 0;
         this.answers = [];
+        this.shuffleArray(this.questions);
         return {
             done: false,
             value: this.questions[this.current]
@@ -224,16 +233,17 @@ window.addEventListener('load', (): void => {
     const test: Test = new Test();
     const iterator: TestIterator = test.getIterator()
     const render: Render = new Render(iterator);
-    
+
+   
     // AJAX
     let request: XMLHttpRequest = new XMLHttpRequest();
     request.onload = function() {
         let data : Question[] = JSON.parse(this.response);
+        iterator.shuffleArray(data);
         render.renderQuestion(data[0]);
         data.forEach( (question: Question) => test.add(question) );
     }
     request.open('GET', '/TestApp/BD.json');
     request.send();
-
 
 });

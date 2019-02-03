@@ -44,9 +44,17 @@ var TestIterator = (function () {
             };
         }
     };
+    TestIterator.prototype.shuffleArray = function (array) {
+        var _a;
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            _a = [array[j], array[i]], array[i] = _a[0], array[j] = _a[1];
+        }
+    };
     TestIterator.prototype.refresh = function () {
         this.current = 0;
         this.answers = [];
+        this.shuffleArray(this.questions);
         return {
             done: false,
             value: this.questions[this.current]
@@ -182,6 +190,7 @@ window.addEventListener('load', function () {
     var request = new XMLHttpRequest();
     request.onload = function () {
         var data = JSON.parse(this.response);
+        iterator.shuffleArray(data);
         render.renderQuestion(data[0]);
         data.forEach(function (question) { return test.add(question); });
     };
