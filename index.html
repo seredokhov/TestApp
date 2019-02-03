@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="panel panel-default" id="test-block">
+                        <div class="panel-body" id="card">
+                            <div class="page-header">
+                                <h3 id="question">Вопрос</h3>
+                            </div>
+                            
+                            <div id="list" class="list-group">
+                                <button type="answer button" class="list-group-item">Ответ</button>
+                                <button type="answer button" class="list-group-item active">Ответ</button>
+                                <button type="answer button" class="list-group-item">Ответ</button>
+                                <button type="answer button" class="list-group-item">Ответ</button>
+                                <button type="answer button" class="list-group-item">Ответ</button>
+                            </div>
+
+                            <div class="button_group">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <button id="stop" type="button" class="btn btn-block btn-danger">Завершить</button>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <button id="next" type="button" class="btn btn-block btn-success">Далее</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div id="progress" class="progress-bar" style="min-width: 2em;">
+                                  0%
+                                </div>
+                            </div>
+                        </div>
+                        <div id="totals">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>

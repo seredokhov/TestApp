@@ -1,0 +1,16 @@
+.button_group {
+    display: block;
+    margin-bottom: 20px;
+}
+.alert {
+    font-size: 20px;
+    padding: 20px 15px;
+    margin-bottom: 20px;
+}
+#card {
+    position: relative;
+}
+#totals {
+    background: #fff;
+    padding: 15px;
+}
